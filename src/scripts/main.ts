@@ -7,7 +7,7 @@ if (recentWorksNode) {
     loop: true,
     wrapperClass: 'recent-projects__slider-wrapper',
     slideClass: 'slide-rp',
-    spaceBetween: 200,
+    spaceBetween: 300,
     // autoplay: {
     //   delay: 3000,
     //   pauseOnMouseEnter: true,
