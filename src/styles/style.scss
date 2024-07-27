@@ -1,0 +1,145 @@
+@import 'normalize';
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Poppins&display=swap');
+
+@mixin av($property, $startSize, $minSize, $widthFrom: 1520, $widthTo: 375) {
+  $addSize: $startSize - $minSize;
+  & {
+    #{$property}: calc(#{$minSize + px} + #{$addSize} * (100vw - #{$widthTo + px}) / #{($widthFrom) - ($widthTo)});
+  }
+
+  @media (min-width: ($widthFrom + px)) {
+    & {
+      #{$property}: $startSize + px;
+    }
+  }
+}
+
+body {
+  font-family: 'Archivo', sans-serif;
+}
+
+.recent-projects {
+  &__container {
+    margin: 0 auto;
+    padding: 0 16px;
+    @include av('padding-top', 170, 90);
+    overflow: hidden;
+  }
+  &__inner {
+    position: relative;
+    @include av('padding-right', 87, 30);
+    @include av('padding-top', 0, 30, 1600, 1400);
+    padding-left: 33px;
+    max-width: 1600px;
+    margin: 0 auto;
+    @media (max-width: 1400px) {
+      padding-top: 0;
+    }
+  }
+  &__gradient {
+    max-width: 1387px;
+    background: linear-gradient(275.64deg, #001253 0.87%, #930007 98.32%);
+    border-radius: 40px;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    top: -60px;
+    height: 90%;
+    @media (max-width: 1400px) {
+      top: -30px;
+    }
+  }
+  &__title {
+    @include av('font-size', 40, 36);
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+    z-index: 10;
+    position: relative;
+
+    @media (max-width: 1400px) {
+      margin-bottom: 40px;
+    }
+  }
+  &__slider {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    // overflow-x: hidden;
+  }
+  &__slider-wrapper {
+    width: 100%;
+    display: flex;
+  }
+  &__slider-prev {
+  }
+  &__slider-next {
+  }
+}
+.slide-rp {
+  flex-shrink: 0;
+  position: relative;
+
+  &__mobile {
+    position: absolute;
+    z-index: -1;
+    left: -50px;
+    top: -200px;
+    @media (max-width: 1400px) {
+      display: none;
+    }
+  }
+  &__inner {
+    display: flex;
+    justify-content: center;
+    column-gap: 30px;
+    @media (max-width: 1400px) {
+      flex-direction: column-reverse;
+      align-items: center;
+      row-gap: 40px;
+    }
+  }
+  &__desktop {
+    @include av('width', 700, 300);
+    max-width: 100%;
+    object-fit: contain;
+    @media (max-width: 1400px) {
+      width: 100%;
+      max-width: 700px;
+      position: relative;
+    }
+  }
+  &__content {
+    flex: 0 1 493px;
+    padding-top: 93px;
+    padding-bottom: 140px;
+    @media (max-width: 1400px) {
+      padding: 0;
+      flex: 0 1 auto;
+    }
+  }
+  &__title {
+    position: relative;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #fff;
+    @include av('font-size', 30, 26);
+    &::before {
+      content: '';
+      position: absolute;
+      width: 140px;
+      height: 7px;
+      top: -22px;
+      left: 0;
+      background-color: #ec1721;
+    }
+  }
+  &__text {
+    color: #fff;
+    line-height: 1.6;
+    font-size: 18px;
+    font-weight: 300;
+  }
+}

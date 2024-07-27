@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page</title>
+  </head>
+  <body>
+    {{> header}}
+    <main>
+      <section class="recent-projects">
+        <div class="recent-projects__container">
+          <div class="recent-projects__inner">
+            <div class="recent-projects__gradient"></div>
+            <h2 class="recent-projects__title">Our Recent Projects</h2>
+            <div class="recent-projects__slider">
+              <div class="recent-projects__slider-wrapper">
+                <div class="recent-projects__slider-slide slide-rp">
+                  <img data-swiper-parallax-x="-150" data-swiper-parallax-opacity="0" src="/images/phones.webp" alt="Phones" class="slide-rp__mobile" />
+                  <div class="slide-rp__inner">
+                    <img
+                      data-swiper-parallax-x="50"
+                      data-swiper-parallax-opacity="0"
+                      data-swiper-parallax-duration="1000"
+                      src="/images/laptop.webp"
+                      alt="Desktop"
+                      class="slide-rp__desktop" />
+                    <div class="slide-rp__content">
+                      <h3 data-swiper-parallax-x="-100" class="slide-rp__title">Penn East Federal Credit Union</h3>
+                      <p data-swiper-parallax-x="50" class="slide-rp__text">
+                        partnered with us to transform their digital presence. Our goal was to create a modern, user-friendly website that enhances member engagement and simplifies
+                        access to financial information. Through collaborative planning and innovative design, we delivered a comprehensive solution that meets the dynamic needs of
+                        Penn East FCU’s members. access to financial information. Through collaborative planning and innovative design, we delivered a comprehensive solution that
+                        meets the dynamic needs of Penn East FCU’s members.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="recent-projects__slider-slide slide-rp">
+                  <img data-swiper-parallax-x="-150" data-swiper-parallax-opacity="0" src="/images/phones.webp" alt="Phones" class="slide-rp__mobile" />
+                  <div class="slide-rp__inner">
+                    <img
+                      data-swiper-parallax-x="50"
+                      data-swiper-parallax-opacity="0"
+                      data-swiper-parallax-duration="1000"
+                      src="/images/laptop.webp"
+                      alt="Desktop"
+                      class="slide-rp__desktop" />
+                    <div class="slide-rp__content">
+                      <h3 data-swiper-parallax-x="-100" class="slide-rp__title">Penn East Federal Credit Union</h3>
+                      <p data-swiper-parallax-x="50" class="slide-rp__text">
+                        partnered with us to transform their digital presence. Our goal was to create a modern, user-friendly website that enhances member engagement and simplifies
+                        access to financial information. Through collaborative planning and innovative design, we delivered a comprehensive solution that meets the dynamic needs of
+                        Penn East FCU’s members.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="recent-projects__slider-prev">
+                <img src="/images/arrow.svg" alt="Prev slide" />
+              </button>
+              <button type="button" class="recent-projects__slider-next">
+                <img src="/images/arrow.svg" alt="Next slide" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    {{> footer}}
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="module" src="../src/scripts/main.ts"></script>
+  </body>
+</html>
