@@ -7,7 +7,7 @@ if (recentWorksNode) {
     loop: true,
     wrapperClass: 'recent-projects__slider-wrapper',
     slideClass: 'slide-rp',
-    spaceBetween: 300,
+    spaceBetween: 340,
     // autoplay: {
     //   delay: 3000,
     //   pauseOnMouseEnter: true,
@@ -16,8 +16,8 @@ if (recentWorksNode) {
     parallax: true,
     speed: 1800,
     navigation: {
-      nextEl: '.recent-projects__slider-prev',
-      prevEl: '.recent-projects__slider-next',
+      nextEl: '.recent-projects__slider-next',
+      prevEl: '.recent-projects__slider-prev',
     },
   });
 }

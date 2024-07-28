@@ -3,17 +3,16 @@
 
 @mixin av($property, $startSize, $minSize, $widthFrom: 1520, $widthTo: 375) {
   $addSize: $startSize - $minSize;
-  & {
-    #{$property}: calc(#{$minSize + px} + #{$addSize} * (100vw - #{$widthTo + px}) / #{($widthFrom) - ($widthTo)});
-  }
+  #{$property}: calc(#{$minSize + px} + #{$addSize} * (100vw - #{$widthTo + px}) / #{($widthFrom) - ($widthTo)});
 
   @media (min-width: ($widthFrom + px)) {
-    & {
-      #{$property}: $startSize + px;
-    }
+    #{$property}: $startSize + px;
   }
 }
 
+.screen {
+  height: 100vh;
+}
 body {
   font-family: 'Archivo', sans-serif;
 }
@@ -28,10 +27,24 @@ body {
     max-width: 1460px;
     margin: 0 auto;
     padding: 0 46px;
-  }
-  &__inner {
+    @media (max-width: 640px) {
+      padding: 0 16px;
+    }
   }
   &__title {
+    @include av('font-size', 40, 32);
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 70px;
+    line-height: 1.2;
+    transform: translateX(-50%);
+    z-index: 10;
+    @media (max-width: 1200px) {
+      top: 40px;
+    }
   }
   &__slider {
     position: relative;
@@ -40,6 +53,7 @@ body {
 
   &__slider-wrapper {
     display: flex;
+    align-items: flex-start;
     width: 100%;
   }
   &__slider-slide {
@@ -54,11 +68,18 @@ body {
     display: flex;
     justify-content: space-between;
     column-gap: 30px;
+    @media (max-width: 640px) {
+      top: -50px;
+      justify-content: center;
+    }
   }
   &__slider-prev {
     transform: rotate(180deg) translateX(40px);
     &:hover {
       opacity: 0.8;
+    }
+    @media (max-width: 640px) {
+      transform: rotate(180deg) translateX(0px);
     }
   }
   &__slider-next {
@@ -66,21 +87,32 @@ body {
     &:hover {
       opacity: 0.8;
     }
+    @media (max-width: 640px) {
+      transform: translateX(0px);
+    }
   }
 }
 .slide-rp {
   padding-right: 87px;
   padding-left: 33px;
-  // padding-top: 131px;
-
+  padding-top: 50px;
+  @media (max-width: 1200px) {
+    padding: 90px 40px 0 40px;
+  }
+  @media (max-width: 640px) {
+    padding: 90px 30px 0 30px;
+  }
   &__body {
     display: flex;
-    // column-gap: 20px;
     position: relative;
     z-index: 2;
+    @media (max-width: 1200px) {
+      row-gap: 40px;
+      flex-direction: column-reverse;
+      align-items: center;
+    }
   }
   &__gradient {
-    // transform: translateY(-70px);
     background: linear-gradient(275.64deg, #001253 0.87%, #930007 98.32%);
     border-radius: 35px;
     position: absolute;
@@ -93,18 +125,48 @@ body {
     flex: 0 1 774px;
     transform: translateY(100px);
     position: relative;
+    @media (max-width: 1200px) {
+      transform: translateY(50px);
+      flex: 0 1 auto;
+    }
+    @media (max-width: 640px) {
+      transform: translateY(30px);
+    }
   }
   &__images-desk {
+    @media (max-width: 1200px) {
+      max-width: 85%;
+      margin-left: 20%;
+    }
+    @media (max-width: 640px) {
+      max-width: 100%;
+      margin-left: 10%;
+    }
   }
   &__images-mob {
     position: absolute;
-    top: -215px;
+    top: -255px;
     @include av('left', -123, -30, 1600, 1000);
+    max-width: 352px;
+    object-fit: contain;
+    @media (max-width: 1200px) {
+      left: -7%;
+      top: -130px;
+      max-width: 50%;
+    }
+    @media (max-width: 640px) {
+      left: -40px;
+      max-width: 70%;
+    }
   }
   &__content {
     flex: 0 1 493px;
-    @include av('padding-top', 193, 90);
+    @include av('padding-top', 193, 110, 1600, 1200);
     @include av('padding-bottom', 30, 50, 1600, 1200);
+    @media (max-width: 1200px) {
+      flex: 0 1 auto;
+      padding-top: 90px;
+    }
   }
   &__title {
     @include av('font-size', 30, 28);
